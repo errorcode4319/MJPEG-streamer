@@ -1,20 +1,42 @@
-#include "HttpHandler.h"
+#include "RestAPIServer.h"
+
+
+void view(http_request& req) {
+	std::cout << "Custom Route Function" << std::endl;
+	concurrency::streams::fstream::open_istream(U("html/viewer.html"), std::ios::in)
+	.then([=](concurrency::streams::istream is) {
+		req.reply(status_codes::OK, is, U("text/html"))
+			.then([](pplx::task<void> t) {
+				try {
+					t.get();
+				}
+				catch (...) {}
+			}
+		);
+	})
+	.then([=](pplx::task<void>t) {
+			try {
+				t.get();
+			}
+			catch (...) {
+				req.reply(status_codes::InternalError, U("INTERNAL ERROR "));
+			}
+		});
+	return;
+}
+
 
 int main() {
-	std::unique_ptr<HttpHandler> httpHandler;
+	auto server = std::make_unique<RestAPIServer>(U("http://127.0.0.1:12345"));
 
-	web::uri_builder uri(U("http://127.0.0.1:12345"));
-	auto address = uri.to_uri().to_string();
-	httpHandler = std::make_unique<HttpHandler>(address);
-	httpHandler->open().wait();
+	server->route("/view", view, { "get", "post" });
 
-	ucout << utility::string_t(U("Listening for requests at: ")) << address << std::endl;
+	server->run();
 
-
-	std::cout << "Press AnyKey to Exit." << std::endl;
+	std::cout << "Press ENTER to quit" << std::endl;
 	std::string line;
 	std::getline(std::cin, line);
 
-	httpHandler->close().wait();
+	server->shutdown();
 	return 0;
 }
