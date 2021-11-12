@@ -11,15 +11,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="RestAPIServer.cpp">
+      <Filter>http</Filter>
+    </ClCompile>
+    <ClCompile Include="Router.cpp">
+      <Filter>http</Filter>
+    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>main</Filter>
     </ClCompile>
-    <ClCompile Include="HttpHandler.cpp">
-      <Filter>http</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="HttpHandler.h">
+    <ClInclude Include="RestAPIServer.h">
+      <Filter>http</Filter>
+    </ClInclude>
+    <ClInclude Include="Router.h">
       <Filter>http</Filter>
     </ClInclude>
   </ItemGroup>

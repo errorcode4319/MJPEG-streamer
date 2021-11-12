@@ -2,26 +2,24 @@
 
 
 void view(http_request& req) {
-	std::cout << "Custom Route Function" << std::endl;
 	concurrency::streams::fstream::open_istream(U("html/viewer.html"), std::ios::in)
 	.then([=](concurrency::streams::istream is) {
 		req.reply(status_codes::OK, is, U("text/html"))
-			.then([](pplx::task<void> t) {
-				try {
-					t.get();
-				}
-				catch (...) {}
-			}
-		);
-	})
-	.then([=](pplx::task<void>t) {
+		.then([](pplx::task<void> t) {
 			try {
 				t.get();
 			}
-			catch (...) {
-				req.reply(status_codes::InternalError, U("INTERNAL ERROR "));
-			}
+			catch (...) {}
 		});
+	})
+	.then([=](pplx::task<void>t) {
+		try {
+			t.get();
+		}
+		catch (...) {
+			req.reply(status_codes::InternalError, U("INTERNAL ERROR "));
+		}
+	});
 	return;
 }
 
