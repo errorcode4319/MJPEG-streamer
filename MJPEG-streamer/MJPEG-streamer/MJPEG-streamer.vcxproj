@@ -20,10 +20,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Message.cpp" />
     <ClCompile Include="RestAPIServer.cpp" />
     <ClCompile Include="Router.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Message.h" />
     <ClInclude Include="RestAPIServer.h" />
     <ClInclude Include="Router.h" />
   </ItemGroup>

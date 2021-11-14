@@ -5,28 +5,37 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="http">
+    <Filter Include="http-cpprestsdk">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="http-native-impl">
+      <UniqueIdentifier>{3bbdc4a5-5b14-4444-86f1-ca64353e2747}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="RestAPIServer.cpp">
-      <Filter>http</Filter>
+      <Filter>http-cpprestsdk</Filter>
     </ClCompile>
     <ClCompile Include="Router.cpp">
-      <Filter>http</Filter>
+      <Filter>http-cpprestsdk</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>main</Filter>
     </ClCompile>
+    <ClCompile Include="Message.cpp">
+      <Filter>http-native-impl</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RestAPIServer.h">
-      <Filter>http</Filter>
+      <Filter>http-cpprestsdk</Filter>
     </ClInclude>
     <ClInclude Include="Router.h">
-      <Filter>http</Filter>
+      <Filter>http-cpprestsdk</Filter>
+    </ClInclude>
+    <ClInclude Include="Message.h">
+      <Filter>http-native-impl</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
