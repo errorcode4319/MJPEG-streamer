@@ -26,6 +26,9 @@
     <ClCompile Include="Message.cpp">
       <Filter>http-native-impl</Filter>
     </ClCompile>
+    <ClCompile Include="HttpStreamer.cpp">
+      <Filter>http-native-impl</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RestAPIServer.h">
@@ -35,6 +38,9 @@
       <Filter>http-cpprestsdk</Filter>
     </ClInclude>
     <ClInclude Include="Message.h">
+      <Filter>http-native-impl</Filter>
+    </ClInclude>
+    <ClInclude Include="HttpStreamer.h">
       <Filter>http-native-impl</Filter>
     </ClInclude>
   </ItemGroup>

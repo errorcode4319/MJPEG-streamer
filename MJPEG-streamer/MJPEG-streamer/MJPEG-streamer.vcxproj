@@ -19,12 +19,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="HttpStreamer.cpp" />
+    <ClCompile Include="main.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="Message.cpp" />
     <ClCompile Include="RestAPIServer.cpp" />
     <ClCompile Include="Router.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="HttpStreamer.h" />
     <ClInclude Include="Message.h" />
     <ClInclude Include="RestAPIServer.h" />
     <ClInclude Include="Router.h" />
