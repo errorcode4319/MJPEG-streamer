@@ -50,8 +50,8 @@ int main() {
 			std::cerr << "frame not grabbed" << std::endl;
 			exit(1);
 		}
-		cv::imshow("cap", frame);
-		if (cv::waitKey(1) == 27) break;
+		cv::imshow("image", frame);
+		if (cv::waitKey(10) == 27) break;
 		std::vector<uchar> buff_bgr;
 		cv::imencode(".jpg", frame, buff_bgr, params);
 		streamer->streaming("/stream", std::string(std::begin(buff_bgr), std::end(buff_bgr)));
