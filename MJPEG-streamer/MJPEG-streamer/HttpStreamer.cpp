@@ -12,7 +12,6 @@ void HttpStreamer::start(size_t numWorkers) {
     mServAddr.sin_addr.s_addr = htonl(INADDR_ANY);
     mServAddr.sin_port = htons(mPort);
 
-    /* Exception 추가 필요 */
     bind(mhServSock, (SOCKADDR*)&mServAddr, sizeof(mServAddr));
 
     listen(mhServSock, 5);
